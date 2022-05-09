@@ -1,7 +1,6 @@
 """
-Реализация сортировки подсчета для неотрицательных чисел - [0; n]
+Реализация сортировки подсчетом для неотрицательных чисел - [0; n]
 """
-
 
 def counting_sort(initial_array):
     """ return sorted array"""
@@ -17,13 +16,8 @@ def counting_sort(initial_array):
 
     # Сортируем initial_array
     output = [0] * len(initial_array)
-    for index, element in enumerate(initial_array):
+    for element in initial_array:
         output[count[element] - 1] = element
         count[element] -= 1
 
     return output
-
-
-if __name__ == "__main__":
-    array = [1, 4, 4, 2, 8, 5, 3]
-    print(counting_sort(array))
