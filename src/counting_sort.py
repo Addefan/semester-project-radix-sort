@@ -2,8 +2,9 @@
 Реализация сортировки подсчетом для неотрицательных чисел - [0; n]
 """
 
+
 def counting_sort(initial_array):
-    """ return sorted array"""
+    """return sorted array"""
 
     # Подсчет кол-ва одинаковых элементов в первоначальном массиве
     count = [0] * (max(initial_array) + 1)
