@@ -1,5 +1,5 @@
 """
-Реализация сортировки подсчетом для неотрицательных чисел - [0; n]
+Реализация сортировки подсчетом для любых целых чисел - [-m; n]; m, n ∈ R; -m < n
 """
 
 
@@ -7,18 +7,13 @@ def counting_sort(initial_array):
     """return sorted array"""
 
     # Подсчет кол-ва одинаковых элементов в первоначальном массиве
-    count = [0] * (max(initial_array) + 1)
+    max_number, min_number = max(initial_array), min(initial_array)
+    count = [0 for _ in range(min_number, max_number + 1)]
     for element in initial_array:
-        count[element] += 1
+        count[element - min_number] += 1
 
-    # Теперь count содержит фактическую позицию элементов в выходном массиве.
-    for index in range(1, len(count)):
-        count[index] += count[index - 1]
+    # Перезаписываем initial_array в отсортированном порядке
+    initial_array = [number + min_number for number, repetitions in
+                     enumerate(count) for _ in range(repetitions)]
 
-    # Сортируем initial_array
-    output = [0] * len(initial_array)
-    for element in initial_array:
-        output[count[element] - 1] = element
-        count[element] -= 1
-
-    return output
+    return initial_array
