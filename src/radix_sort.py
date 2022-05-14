@@ -11,6 +11,10 @@ def radix_sort(initial_array):
     :return: list - отсортированный массив
     """
     max_number = max(initial_array)
+
+    # Сортировка по каждому разряду
+    output = initial_array
     for position in range(len(str(max_number))):
-        initial_array = counting_sort(initial_array, position)
-    return initial_array
+        output = counting_sort(output, position)
+
+    return output

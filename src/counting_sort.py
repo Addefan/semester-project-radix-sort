@@ -24,8 +24,9 @@ def counting_sort(initial_array, position):
     output = [0] * len(initial_array)
 
     for element in initial_array[::-1]:
-        output[count[element // (10 ** position) % 10] - 1] = element
-        count[element // (10 ** position) % 10] -= 1
+        digit_in_position = element // (10 ** position) % 10
+        output[count[digit_in_position] - 1] = element
+        count[digit_in_position] -= 1
 
     return output
 
