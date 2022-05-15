@@ -1,7 +1,7 @@
 """
 Реализация поразрядной сортировки
 """
-from counting_sort import counting_sort
+from src.counting_sort import counting_sort
 
 
 def radix_sort(initial_array):
