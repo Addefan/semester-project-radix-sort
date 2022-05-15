@@ -3,7 +3,7 @@
 """
 
 
-def counting_sort(initial_array, position):
+def counting_sort(initial_array, position=None):
     """
     Функция, которая сортирует массив по одному разряду подсчётом
     :param initial_array: list - массив, который нужно отсортировать
@@ -12,9 +12,11 @@ def counting_sort(initial_array, position):
     """
 
     # Подсчет кол-ва одинаковых элементов в первоначальном массиве
-    count = [0] * (max_digit(initial_array) + 1)
+    count_size = max(initial_array) + 1 if position is None else max_digit(initial_array) + 1
+    count = [0] * count_size
     for element in initial_array:
-        count[element // (10 ** position) % 10] += 1
+        digit_in_position = element if position is None else element // (10 ** position) % 10
+        count[digit_in_position] += 1
 
     # Теперь count содержит фактическую позицию элементов в выходном массиве
     for index in range(1, len(count)):
@@ -24,7 +26,7 @@ def counting_sort(initial_array, position):
     output = [0] * len(initial_array)
 
     for element in initial_array[::-1]:
-        digit_in_position = element // (10 ** position) % 10
+        digit_in_position = element if position is None else element // (10 ** position) % 10
         output[count[digit_in_position] - 1] = element
         count[digit_in_position] -= 1
 
