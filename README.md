@@ -53,6 +53,8 @@ git clone https://github.com/Addefan/semester-project-radix-sort.git
 
 Сборка и запуск проекта осуществляется через среду разработки.
 
+[Видео-инструкция по сборке проекта](https://youtu.be/7XaqeSFOsj8)
+
 #### Генерация тестовых данных
 
 Формат данных: [comma-seperated values (CSV)](https://en.wikipedia.org/wiki/Comma-separated_values).
@@ -63,7 +65,7 @@ git clone https://github.com/Addefan/semester-project-radix-sort.git
 cd dataset
 
 # запуск Python-скрипта
-python generate_csv_bench_dataset.py <output> --samples 100 --sort counting --boundary 100
+python generate_csv_dataset.py <output> --samples 100 --sort counting --boundary 100
 ```
 
 - `<output>` - выходной файл;
@@ -92,6 +94,8 @@ python generate_csv_dataset.py data/radix_sort/01/100.csv --samples 100 --sort r
 ```
 
 где `<output> = data/radix_sort/01/100.csv` 
+
+[Видео-инструкция по генерации данных](https://youtu.be/3L2wnjQXXkQ)
 
 #### Контрольные тесты (benchmarks)
 
@@ -129,6 +133,8 @@ python benchmark/radix_sort_benchmark.py dataset/data/radix_sort/01/10000.csv be
 ``` 
 
 где `<input> = dataset/data/radix_sort/01/10000.csv` и `<output> = benchmark/metrics.txt`.
+
+[Видео-инструкция по запуску контрольных тестов](https://youtu.be/x930YbSH2qY)
 
 ## Источники
 
